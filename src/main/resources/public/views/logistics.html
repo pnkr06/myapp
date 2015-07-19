@@ -1,0 +1,36 @@
+
+<h2>
+	Logistics <a class="btn btn-primary pull-right" href="#/track"> <i
+		class="icon-plus-sign icon-white"></i>New Logistics
+	</a>
+</h2>
+
+<!--  
+<label>Search: <input ng-model="sname"></label>
+<br />
+-->
+<table class="table table-hover">
+	<thead>
+		<tr>
+			<th>Carrier</th>
+			<th>BOL</th>
+			<th>Tracking #</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr
+			ng-repeat="todo in todosl | orderBy:'-tracknum' | filter:searchText ">
+			<td>{{ todo.carrier}}</td>
+			<td>{{ todo.bol }}</td>
+			<td>{{ todo.tracknum }}</td>
+
+			<td><input type="button" class="btn btn-info pull-right"
+				ng-click="editTodo(todo)" ng-model="todo.id" value="Edit"></td>
+			<td><input type="button" class="btn btn-danger pull-right"
+				ng-click="deleteTodo(todo)" ng-model="todo.id" value="Delete">
+			</td>
+		</tr>
+	</tbody>
+
+</table>
+

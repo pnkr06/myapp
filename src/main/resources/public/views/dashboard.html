@@ -1,0 +1,46 @@
+
+<h2>
+	Priority Dashboard <a class="btn btn-primary pull-right"
+		href="#/priority"> <i class="icon-plus-sign icon-white"></i>New
+		Shipping Line
+	</a>
+</h2>
+
+<!--    
+		  <label>Search: <input ng-model="iname"></label> 
+		  <br />
+  -->
+<table class="table table-hover">
+	<thead>
+		<tr>
+			<th>SN/ICN #</th>
+			<th>Delivered Date & Time</th>
+			<th>Material Location</th>
+			<th>Delivered By</th>
+			<th>Pass for Load</th>
+			<th>Pack#</th>
+			<th>Case#</th>
+			<th>Weight</th>
+			<th>Package Type</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr ng-repeat="todo in todosi | orderBy: 'date' | filter:searchText">
+			<td>{{ todo.icnnum }}</td>
+			<td>{{ todo.date | date:'medium' }}</td>
+			<td>{{ todo.mloc }}</td>
+			<td>{{ todo.person }}</td>
+			<td>{{ todo.pass }}</td>
+			<td>{{ todo.pack }}</td>
+			<td>{{ todo.icase }}</td>
+			<td>{{ todo.wt }}</td>
+			<td>{{ todo.type }}</td>
+			<td><input type="button" class="btn btn-info pull-right"
+				ng-click="editTodo(todo)" ng-model="todo.id" value="Edit"></td>
+			<td><input type="button" class="btn btn-danger pull-right"
+				ng-click="deleteTodo(todo)" ng-model="todo.id" value="Delete">
+			</td>
+		</tr>
+	</tbody>
+
+</table>

@@ -1,0 +1,53 @@
+
+<h2>
+	Shipping Notice Logbook <a class="btn btn-primary pull-right"
+		href="#/create"> <i class="icon-plus-sign icon-white"></i>New
+		Shipping Notice
+	</a>
+</h2>
+
+<!--  
+<label>Search: <input ng-model="sname"></label>
+<br />
+-->
+<table class="table table-hover">
+	<thead>
+		<tr>
+			<!--		<th>Vendor#</th> -->
+			<th>Vendor Name</th>
+			<th>Vendor Address</th>
+			<th>Comp Code</th>
+			<th>Item#</th>
+			<th>Item Description</th>
+			<th>Quantity</th>
+			<th>Comments</th>
+			<th>International</th>
+			<th>Delivery Date</th>
+			<th>Instructions</th>
+
+		</tr>
+	</thead>
+	<tbody>
+		<tr
+			ng-repeat="todo in todos | orderBy:'-shipdevdate' | filter:searchText ">
+			<!--	<td>{{ todo.vnum }}</td> -->
+			<td>{{ todo.vname }}</td>
+			<td>{{ todo.vaddress }}</td>
+			<td>{{ todo.compcode }}</td>
+			<td>{{ todo.itemno }}</td>
+			<td>{{ todo.itemdesc }}</td>
+			<td>{{ todo.qty }}</td>
+			<td>{{ todo.cmnts }}</td>
+			<td>{{ todo.intlshipdocs }}</td>
+			<td>{{ todo.shipdevdate | date:'M/d/yy' }}</td>
+			<td>{{ todo.instructions }}</td>
+			<td><input type="button" class="btn btn-info pull-right"
+				ng-click="editTodo(todo)" ng-model="todo.id" value="Edit"></td>
+			<td><input type="button" class="btn btn-danger pull-right"
+				ng-click="deleteTodo(todo)" ng-model="todo.id" value="Delete">
+			</td>
+		</tr>
+	</tbody>
+
+</table>
+
